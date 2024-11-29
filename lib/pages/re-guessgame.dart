@@ -23,12 +23,14 @@ class _GuessGameState extends State<GuessGame> {
   void generateRandomNumber() {
     randomNumber = Random().nextInt(11);
   }
+
   void checkGuess() {
     setState(() {
       if (int.parse(userInput.text) == randomNumber) {
-        congratMsg = "You guessed the number right! The number was indeed $randomNumber";
+        congratMsg =
+            "You guessed the number right! The number was indeed $randomNumber";
         generateRandomNumber();
-      } else{
+      } else {
         congratMsg = "Failed to guess the correct number. Try again!";
       }
     });
@@ -59,6 +61,10 @@ class _GuessGameState extends State<GuessGame> {
                       fontWeight: FontWeight.bold,
                       color: Color(0xFFFFFFFF)),
                 ),
+                SizedBox(
+                  width: 10,
+                  height: 10,
+                ),
                 TextField(
                   controller: userInput,
                   decoration: InputDecoration(
@@ -66,10 +72,18 @@ class _GuessGameState extends State<GuessGame> {
                     hintText: "Guess a number from 1 - 10..",
                   ),
                 ),
+                SizedBox(
+                  width: 10,
+                  height: 10,
+                ),
                 ElevatedButton(
                   onPressed: checkGuess,
                   child: Text("Guess"),
                   style: ButtonStyle(),
+                ),
+                SizedBox(
+                  width: 10,
+                  height: 10,
                 ),
                 Text(congratMsg),
               ],
