@@ -17,7 +17,7 @@ class GuessGame extends StatefulWidget {
 class _GuessGameState extends State<GuessGame> {
   TextEditingController userInput = TextEditingController();
 
-  int randomNumber = 0;
+  int randomNumber = Random().nextInt(11);
   String congratMsg = "";
 
   void generateRandomNumber() {
